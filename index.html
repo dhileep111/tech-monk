@@ -79,19 +79,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+            /* Use grid-template-columns to control layout */
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+}
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
+            display: flex; /* Use flexbox to easily center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+         flex-grow: 1; /* Allow it to take up available space */
+       }
+
+         .logo img {
+            height: 40px; /* Adjust this value to make the logo the size you want */
+            width: auto;
+       }
 
         .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+                   display: flex;
+                   list-style: none;
+                   gap: 2rem;
+                   justify-self: end; /* This pushes the nav links to the right */
+       }
 
         .nav-links a {
             text-decoration: none;
@@ -361,9 +372,8 @@
     <header>
     <nav class="container">
         <div class="logo">
-            <img src="tech-monk.png" alt="Tech Monk " style="height: 150px; margin-right: 30px;">
-            Tech Monk
-        </div>
+    <img src="Tech-Monk.jpg" alt="Tech Monk Logo">
+</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
