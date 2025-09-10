@@ -50,6 +50,21 @@ blog_posts = {
             "**Mindful tech usage** is also key. Instead of mindlessly scrolling, ask yourself why you're picking up your device. Is it to complete a specific task, or are you simply looking for a distraction? By becoming more aware of your habits, you can make more conscious choices about how and when you use technology.",
             "Finally, remember the importance of **physical connection**. Technology is great for staying in touch, but it's not a substitute for real-world interactions. Make an effort to meet up with friends, join a club, or volunteer. These activities can help ground you and remind you of the richness of life beyond the screen."
         ]
+    },
+    'intro-to-cybersecurity': {
+        'title': 'Introduction to Cybersecurity: Protecting Your Digital World',
+        'subtitle': 'An animated guide to understanding the basics of cybersecurity and how to stay safe online.',
+        'image': 'https://placehold.co/1000x500/FF5733/FFFFFF?text=Cybersecurity+Animation',
+        'image_alt': 'A stylized animated scene with security icons and code',
+        'author': 'Tech Monk Team',
+        'date': 'September 10, 2025',
+        'content': [
+            "Welcome to our animated guide on cybersecurity. In a world where our lives are increasingly digital, understanding how to protect yourself is more important than ever. This guide will walk you through the fundamental concepts of digital security, explained in a simple and visual way.  Let's dive in.",
+            "**What is Cybersecurity?** At its core, cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes. Think of it as putting a lock on your digital front door.",
+            "**Common Threats to Look Out For:** One of the most common threats is **malware**—short for malicious software. This includes viruses, spyware, and ransomware that can infect your computer. Another major threat is **phishing**, where attackers trick you into revealing personal information through fake emails or websites. Understanding these threats is the first step to defending against them.",
+            "**Best Practices for Digital Safety:** Protecting yourself doesn't require advanced technical skills. Start with the basics: use strong, unique passwords for every account, enable two-factor authentication (2FA) wherever possible, and be cautious of suspicious links or attachments. Regularly updating your software and backing up your important data are also crucial habits.",
+            "**The Human Element:** Technology is only one part of the security puzzle. The most significant factor is often human behavior. Being aware of the risks and making smart choices online—like thinking before you click—can prevent a majority of cyberattacks. Cybersecurity is a shared responsibility, and every user plays a role in making the digital world safer."
+        ]
     }
 }
 
@@ -62,7 +77,7 @@ def home():
 # Route to serve the blog page (blog.html)
 @app.route('/blog.html')
 def blog():
-    return render_template('blog.html', articles=blog_posts.values())
+    return render_template('blog.html', articles=blog_posts.items())
 
 # Route to serve a specific article page (e.g., /articles/ai-ethics)
 @app.route('/articles/<slug>')
