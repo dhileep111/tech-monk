@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Monk - The Next Level</title>
-    <meta name="description" content="Tech Monk – Create amazing digital experiences with beautiful design and powerful functionality.">
+    <meta name="description" content="Tech Monk – Raising awareness and providing insights about technology trends, safety, and innovation for everyone.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -54,19 +54,26 @@
         nav {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             position: relative;
         }
+        /* Logo styles */
+        .site-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            object-fit: contain;
+            margin-right: 1rem;
+            margin-left: 0;
+            box-shadow: var(--shadow-light);
+        }
         .site-title {
-            font-size: 2rem;
+            font-size: 1.35rem;
             font-weight: bold;
             color: var(--primary-color);
             font-family: 'Inter', sans-serif;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
             letter-spacing: 1px;
+            margin-right: auto;
         }
         .nav-links {
             display: flex;
@@ -135,9 +142,13 @@
                 flex-direction: row;
                 justify-content: space-between;
             }
+            .site-logo {
+                width: 38px;
+                height: 38px;
+                margin: 0 0.5rem 0 0;
+            }
             .site-title {
-                position: static;
-                transform: none;
+                font-size: 1.1rem;
                 margin-bottom: 0.5rem;
             }
             .hamburger {
@@ -171,7 +182,7 @@
         }
         /* Hero Section */
         .hero {
-            padding: 180px 0 120px;
+            padding: 180px 0 60px;
             text-align: center;
             color: white;
             position: relative;
@@ -194,9 +205,10 @@
             gap: 40px;
             position: relative;
             z-index: 2;
+            flex-wrap: wrap;
         }
         .welcome-image {
-            width: 220px;
+            width: 180px;
             height: auto;
             border-radius: 16px;
             box-shadow: var(--shadow-light);
@@ -206,18 +218,24 @@
             position: relative;
             z-index: 2;
             text-align: left;
+            max-width: 600px;
         }
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
             color: white;
         }
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            opacity: 0.92;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.94;
         }
         .cta-button {
             display: inline-block;
@@ -369,7 +387,7 @@
                 text-align: center;
             }
             .welcome-image {
-                width: 160px;
+                width: 120px;
                 margin: 0 auto;
             }
             .hero-content {
@@ -410,6 +428,7 @@
 <body>
     <header>
         <nav class="container">
+            <img src="images/tech monk.png" alt="Tech Monk Logo" class="site-logo">
             <div class="site-title">Tech Monk</div>
             <button class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
                 <span></span>
@@ -429,8 +448,15 @@
         <div class="hero-flex">
             <img src="images/tech monk.png" alt="Tech Monk main illustration" class="welcome-image">
             <div class="hero-content">
-                <h1>Welcome to Tech Monk – Digital Craft</h1>
-                <p>Create amazing experiences with beautiful design and powerful functionality</p>
+                <h1>Welcome to Tech Monk – Digital Craft & Awareness</h1>
+                <p>
+                    Tech Monk is a platform dedicated to spreading awareness about the latest trends, safety, and innovations in the technology industry. 
+                </p>
+                <div class="hero-desc">
+                    Our mission is to empower everyone – from students to professionals and everyday users – with reliable knowledge about digital best practices, cybersecurity, data privacy, and the impact of technology on society.<br><br>
+                    We believe technology should be accessible, safe, and beneficial for all. Explore our resources, articles, and guides to stay informed about common tech threats, digital wellbeing, and responsible innovation.<br>
+                    <strong>Be aware, stay updated, and shape a better digital future with Tech Monk.</strong>
+                </div>
                 <a href="#features" class="cta-button">Get Started</a>
             </div>
         </div>
@@ -468,8 +494,13 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>About Our Company</h2>
-                    <p>We're passionate about creating exceptional digital experiences that make a difference. Our team combines creativity with technical expertise to deliver solutions that exceed expectations.</p>
-                    <p>With years of experience in the industry, we understand what it takes to build successful websites that not only look great but also perform exceptionally well.</p>
+                    <p>
+                        We're passionate about creating exceptional digital experiences that make a difference. Our team combines creativity with technical expertise to deliver solutions that exceed expectations.<br>
+                        Tech Monk also aims to educate users about digital safety, ethical use of technology, and emerging trends affecting communities worldwide.
+                    </p>
+                    <p>
+                        With years of experience in the industry, we understand what it takes to build successful websites and resources that not only look great but also perform exceptionally well.
+                    </p>
                 </div>
                 <div class="about-image-container fade-in">
                     <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop" alt="Team collaborating">
@@ -565,54 +596,53 @@
             });
         });
     </script>
+    <!-- Contact Section (moved into main flow, not below </html>) -->
+    <section id="contact" style="background: var(--light-bg); border-bottom: none;">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm" style="max-width:400px;margin:auto;">
+                <div style="margin-bottom:1rem;">
+                    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;">
+                </div>
+                <div style="margin-bottom:1rem;">
+                    <textarea name="message" placeholder="Your Message" required style="width:100%;padding:10px;height:100px;"></textarea>
+                </div>
+                <button type="submit" style="background:var(--primary-color);color:white;border:none;padding:10px 30px;border-radius:5px;cursor:pointer;">Send</button>
+                <div id="formStatus" style="margin-top:1rem;"></div>
+            </form>
+        </div>
+    </section>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const status = document.getElementById('formStatus');
+        status.textContent = "Sending...";
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                }),
+                headers: {'Content-Type': 'application/json'}
+            });
+            const data = await res.json();
+            if(data.success) {
+                status.textContent = "Message sent successfully!";
+                form.reset();
+            } else {
+                status.textContent = "Failed to send message.";
+            }
+        } catch {
+            status.textContent = "Error sending message.";
+        }
+    });
+    </script>
 </body>
 </html>
-<!-- ... rest of your code above ... -->
-<section id="contact" style="background: var(--light-bg); border-bottom: none;">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form id="contactForm" style="max-width:400px;margin:auto;">
-            <div style="margin-bottom:1rem;">
-                <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <textarea name="message" placeholder="Your Message" required style="width:100%;padding:10px;height:100px;"></textarea>
-            </div>
-            <button type="submit" style="background:var(--primary-color);color:white;border:none;padding:10px 30px;border-radius:5px;cursor:pointer;">Send</button>
-            <div id="formStatus" style="margin-top:1rem;"></div>
-        </form>
-    </div>
-</section>
-<script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const status = document.getElementById('formStatus');
-    status.textContent = "Sending...";
-    try {
-        const res = await fetch('/api/contact', {
-            method: 'POST',
-            body: JSON.stringify({
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message')
-            }),
-            headers: {'Content-Type': 'application/json'}
-        });
-        const data = await res.json();
-        if(data.success) {
-            status.textContent = "Message sent successfully!";
-            form.reset();
-        } else {
-            status.textContent = "Failed to send message.";
-        }
-    } catch {
-        status.textContent = "Error sending message.";
-    }
-});
-</script>
-<!-- ... rest of your code below ... -->
