@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tech Monk - The Next Level</title>
+    <title>Tech Monk - The Next Level</title>
+    <meta name="description" content="Tech Monk – Create amazing digital experiences with beautiful design and powerful functionality.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -19,17 +20,14 @@
             --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
             --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -37,151 +35,78 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }  
-            /* Your existing styles... */
-
-    /* Add these lines below: */
-    .hero-flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        position: relative;
-        z-index: 2;
-    }
-    .welcome-image {
-        width: 220px;
-        height: auto;
-        border-radius: 16px;
-        box-shadow: var(--shadow-light);
-        background: #fff;
-    }
-    @media (max-width: 900px) {
-        .hero-flex {
-            flex-direction: column;
-            gap: 24px;
-            text-align: center;
         }
-        .welcome-image {
-            width: 160px;
-            margin: 0 auto;
+        /* Header styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
-    }
-
-         <style>
-    /* ... (Your existing :root, *, html, body, and container styles remain the same) ... */
-
-    /* General Styles */
-    section {
-        padding: 80px 0;
-        background: var(--light-bg);
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    h1, h2, h3 {
-        color: var(--text-color);
-        font-weight: 700;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-    }
-        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
         .site-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-right: 32px;
-    font-family: 'Inter', sans-serif;
-}
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-    /* Header */
-    header {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 1rem 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        position: absolute; /* Position the logo absolutely */
-        left: 50%; /* Start at the center */
-        transform: translateX(-50%); /* Move it back by half its width to truly center it */
-    }
-
-    .logo img {
-        height: 40px; /* Adjust this value as needed */
-        width: auto;
-    }
-
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        margin-left: auto; /* Push the navigation links to the right */
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--primary-color);
-    }
-    
-    .nav-links a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-        width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 180px 0 120px;
-        text-align: center;
-        color: white;
-        position: relative;
-        overflow: hidden;
-    }
-    
-
-
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: 'Inter', sans-serif;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
         .hero::before {
             content: '';
             position: absolute;
@@ -192,12 +117,26 @@ nav {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
             z-index: 1;
         }
-
-        .hero-content {
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
             position: relative;
             z-index: 2;
         }
-
+        .welcome-image {
+            width: 220px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+            background: #fff;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
@@ -205,13 +144,11 @@ nav {
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
             color: white;
         }
-
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
             opacity: 0.9;
         }
-
         .cta-button {
             display: inline-block;
             background: var(--accent-color);
@@ -223,24 +160,34 @@ nav {
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
         }
-
         .cta-button:hover {
             background: #ff5252;
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
         }
-
         /* Features Section */
+        section {
+            padding: 80px 0;
+            background: var(--light-bg);
+            border-bottom: 1px solid #e0e0e0;
+        }
+        h1, h2, h3 {
+            color: var(--text-color);
+            font-weight: 700;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
         .features {
             background: var(--light-bg);
         }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
         .card {
             background: var(--card-bg);
             padding: 2.5rem;
@@ -250,12 +197,10 @@ nav {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
         }
-
         .card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-deep);
         }
-
         .card-icon {
             width: 70px;
             height: 70px;
@@ -268,53 +213,44 @@ nav {
             color: white;
             font-size: 2rem;
         }
-
         .card h3 {
             font-size: 1.4rem;
             margin-bottom: 1rem;
         }
-
         .card p {
             color: #666;
             line-height: 1.7;
         }
-
         /* About Section */
         .about {
             background: var(--card-bg);
         }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
-
         .about-text h2 {
             text-align: left;
             margin-bottom: 1.5rem;
         }
-        
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #555;
             margin-bottom: 1rem;
         }
-
         .about-image-container {
             position: relative;
             text-align: center;
         }
-
         .about-image-container img {
             max-width: 100%;
             height: auto;
             border-radius: 15px;
             box-shadow: var(--shadow-deep);
         }
-        
         .about-image-container::before {
             content: '';
             position: absolute;
@@ -327,26 +263,22 @@ nav {
             opacity: 0.1;
             z-index: 1;
         }
-
         /* Footer */
         footer {
             background: var(--dark-bg);
             color: white;
             padding: 4rem 0 1.5rem;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #ecf0f1;
         }
-
         .footer-section p,
         .footer-section a {
             color: #bdc3c7;
@@ -354,79 +286,81 @@ nav {
             line-height: 1.8;
             transition: color 0.3s ease;
         }
-
         .footer-section a:hover {
             color: var(--primary-color);
         }
-
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid #34495e;
             color: #95a5a6;
         }
-
         /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-flex {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+            .welcome-image {
+                width: 160px;
+                margin: 0 auto;
+            }
+            .hero-content {
+                text-align: center;
+            }
+        }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .about-content {
                 grid-template-columns: 1fr;
             }
-
             .about-image-container {
                 order: -1;
             }
         }
-        
         /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        
         .fade-in.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .scale-in {
             opacity: 0;
             transform: scale(0.9);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
         .scale-in.is-visible {
             opacity: 1;
             transform: scale(1);
         }
-
     </style>
 </head>
 <body>
     <header>
-    <nav class="container">
-        <div class="site-title">Tech Monk</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
+        <nav class="container">
+            <div class="site-title">Tech Monk</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <section class="hero" id="home">
         <div class="hero-flex">
-            <img src="images/tech monk.png" alt="Tech Monk" class="welcome-image">
+            <img src="images/tech-monk.png" alt="Tech Monk main illustration" class="welcome-image">
             <div class="hero-content">
                 <h1>Welcome to Tech Monk – Digital Craft</h1>
                 <p>Create amazing experiences with beautiful design and powerful functionality</p>
@@ -434,7 +368,6 @@ nav {
             </div>
         </div>
     </section>
-
     <section class="features" id="features">
         <div class="container">
             <h2>Amazing Features</h2>
@@ -463,7 +396,6 @@ nav {
             </div>
         </div>
     </section>
-
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -478,7 +410,6 @@ nav {
             </div>
         </div>
     </section>
-
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -486,7 +417,7 @@ nav {
                     <h3>Contact Info</h3>
                     <p>📧 dhileepraj777@gmail.com</p>
                     <p>📞 6379026089</p>
-                    <p>📍 7/28,pollachi</p>
+                    <p>📍 7/28, pollachi</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -508,7 +439,6 @@ nav {
             </div>
         </div>
     </footer>
-    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Smooth scrolling
@@ -520,7 +450,6 @@ nav {
                     });
                 });
             });
-
             // Header scroll effect
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('header');
@@ -530,7 +459,6 @@ nav {
                     header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
                 }
             });
-
             // Intersection Observer for fade-in effect
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -543,7 +471,6 @@ nav {
                 threshold: 0.2,
                 rootMargin: "0px 0px -50px 0px"
             });
-
             document.querySelectorAll('.fade-in').forEach(element => {
                 observer.observe(element);
             });
