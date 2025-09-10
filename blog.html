@@ -1,214 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Blog</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Tech Monk</title>
+    <meta name="description" content="Read the latest articles and insights on technology trends, digital safety, and responsible innovation from Tech Monk.">
+    <link rel="icon" href="https://placehold.co/32x32/667eea/ffffff?text=TM" type="image/x-icon">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        // Custom Tailwind theme configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4285F4', // Google Blue
+                            hover: '#357ae8',
+                        },
+                        dark: '#1f2937',
+                        light: '#f8f9fa',
+                        medium: '#e5e7eb',
+                    }
+                }
+            }
+        }
+    </script>
 
-  <style>
-    /* Root variables */
-    :root {
-      --primary-color: #4f46e5;
-      --secondary-color: #6366f1;
-      --text-dark: #1f2937;
-      --text-light: #6b7280;
-      --light-bg: #f9fafb;
-      --card-bg: #ffffff;
-      --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
-      --shadow-deep: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: var(--light-bg);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* Header */
-    header {
-      background: #fff;
-      box-shadow: var(--shadow-light);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-color);
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Blog Section */
-    .blog-section {
-      padding: 80px 0;
-    }
-
-    .blog-section h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 2.5rem;
-      font-weight: 700;
-      color: var(--primary-color);
-    }
-
-    .blog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .blog-post-card {
-      background: var(--card-bg);
-      border-radius: 15px;
-      box-shadow: var(--shadow-light);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      border: 1px solid #eee;
-    }
-
-    .blog-post-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-deep);
-    }
-
-    .blog-post-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .blog-post-content {
-      padding: 1.5rem;
-    }
-
-    .blog-post-content h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .blog-post-content p {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-    }
-
-    .read-more {
-      display: inline-block;
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .read-more:hover {
-      color: var(--secondary-color);
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      background: #111827;
-      color: #d1d5db;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-    }
-  </style>
+    <style>
+        /* A little bit of custom CSS for smooth transitions and header shadow */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .header-shadow {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+        }
+    </style>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <nav class="container">
-        <div class="logo">
-            <i class="fas fa-check-circle"></i> YourBrand
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<body class="bg-white text-gray-800 font-sans">
 
-  <!-- Blog Section -->
-  <section class="blog-section">
-    <div class="container">
-      <h2>Latest Posts</h2>
-      <div class="blog-list">
-        <!-- Post 1 -->
-        <div class="blog-post-card">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Blog Post 1 Image">
-          <div class="blog-post-content">
-            <h3>The Future of Web Design</h3>
-            <p>Discover the latest trends and technologies shaping the future of web design and development...</p>
-            <a href="post1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Post 2 -->
-        <div class="blog-post-card">
-          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f" alt="Blog Post 2 Image">
-          <div class="blog-post-content">
-            <h3>Getting Started with JavaScript</h3>
-            <p>A beginner's guide to the fundamentals of JavaScript, from variables to functions...</p>
-            <a href="post2.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <!-- Logo and Site Title -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://placehold.co/48x48/4285F4/ffffff?text=TM" alt="Tech Monk Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-2xl font-bold text-gray-800">Tech Monk</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8 text-lg">
+                    <li><a href="index.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Home</a></li>
+                    <li><a href="blog.html" class="text-primary-DEFAULT font-semibold transition-colors duration-300">Blog</a></li>
+                    <li><a href="index.html#features" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
+                    <li><a href="index.html#about" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
+                    <li><a href="index.html#contact" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
+                </ul>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2025 TechMonk. All rights reserved.</p>
-    </div>
-  </footer>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="px-6 pb-4 space-y-3">
+                 <li><a href="index.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Home</a></li>
+                 <li><a href="blog.html" class="block text-primary-DEFAULT font-semibold transition-colors duration-300 mobile-link">Blog</a></li>
+                 <li><a href="index.html#features" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
+                 <li><a href="index.html#about" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
+                 <li><a href="index.html#contact" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Blog Header Section -->
+        <section id="blog-header" class="pt-32 pb-16 md:pt-40 md:pb-20 bg-light">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">
+                    The Tech Monk Blog
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600">
+                    Insights, tutorials, and discussions on technology, cybersecurity, and digital culture.
+                </p>
+            </div>
+        </section>
+
+        <!-- Blog Grid Section -->
+        <section id="blog-posts" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Blog Post Card 1 -->
+                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/4285F4/FFFFFF?text=AI+Ethics" alt="Blog post image on AI ethics" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="mb-4">
+                                <span class="text-sm font-semibold text-primary-DEFAULT bg-blue-100 py-1 px-3 rounded-full">Artificial Intelligence</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-dark mb-3">The Ethical Dilemmas of Modern AI</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                As AI becomes more integrated into our lives, we must confront the complex ethical questions it raises...
+                            </p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-sm text-gray-500">By Jane Doe • September 10, 2025</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post Card 2 -->
+                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/34A853/FFFFFF?text=Cybersecurity" alt="Blog post image on Cybersecurity" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="mb-4">
+                                <span class="text-sm font-semibold text-green-600 bg-green-100 py-1 px-3 rounded-full">Cybersecurity</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-dark mb-3">5 Essential Steps to Secure Your Digital Life</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Protecting your online accounts is more important than ever. Here are five simple yet powerful steps you can take today.
+                            </p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-sm text-gray-500">By John Smith • September 5, 2025</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post Card 3 -->
+                    <article class="bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/FBBC05/FFFFFF?text=Digital+Wellbeing" alt="Blog post image on Digital Wellbeing" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="mb-4">
+                                <span class="text-sm font-semibold text-yellow-800 bg-yellow-100 py-1 px-3 rounded-full">Digital Wellbeing</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-dark mb-3">Finding Balance in a Hyper-Connected World</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Constant notifications and endless scrolling can be draining. Learn how to build healthier habits with your devices.
+                            </p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-sm text-gray-500">By Alex Johnson • August 28, 2025</p>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- Add more placeholder blog cards as needed -->
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                 <div class="col-span-2 md:col-span-1">
+                    <h3 class="text-xl font-bold mb-4">Tech Monk</h3>
+                    <p class="text-gray-400">Digital Craft & Awareness.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="index.html#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                    </ul>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
+                    </ul>
+                </div>
+                 <!-- Contact -->
+                 <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>dhileepraj777@gmail.com</li>
+                        <li>+91 6379026089</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+                <p>&copy; 2025 Tech Monk. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')) {
+                       mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Optional: Add shadow to header on scroll for better visibility
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('header-shadow');
+                } else {
+                    header.classList.remove('header-shadow');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
