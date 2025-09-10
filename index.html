@@ -1,226 +1,116 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Monk - Digital Craft & Awareness</title>
-    <meta name="description" content="Explore insightful articles and deep dives into the world of technology, from AI to web development.">
-    <link rel="icon" href="https://placehold.co/32x32/4285F4/ffffff?text=TM" type="image/x-icon">
-
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: {
-                            DEFAULT: '#4285F4',
-                            hover: '#357ae8',
-                        },
-                        dark: '#1f2937',
-                        light: '#f8f9fa',
-                        medium: '#e5e7eb',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .header-shadow {
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Awakening & Awareness</title>
+  <meta name="description" content="Awakening & Awareness - Digital Craft & Spiritual Clarity for the Modern Seeker. Bridging technology and mindfulness." />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-light text-gray-800 font-sans">
+<body class="font-sans text-gray-900 bg-white">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-2xl font-extrabold text-indigo-600 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Awakening & Awareness Home">
+        Awakening & Awareness
+      </a>
+      <nav aria-label="Primary navigation" class="space-x-6 text-lg font-medium">
+        <a href="#features" class="hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" tabindex="0">Features</a>
+        <a href="#about" class="hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" tabindex="0">About</a>
+        <a href="#contact" class="hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500" tabindex="0">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
-        <div class="container mx-auto px-6 py-4">
-            <nav class="flex items-center justify-between">
-                <!-- Logo and Site Title -->
-                <a href="#" class="flex items-center space-x-3">
-                    <img src="https://placehold.co/48x48/4285F4/ffffff?text=TM" alt="Tech Monk Logo" class="w-10 h-10 rounded-full">
-                    <span class="text-2xl font-bold text-gray-800">Tech Monk</span>
-                </a>
+  <!-- Hero Section with Video -->
+  <section id="hero" class="relative pt-20 bg-black text-white">
+    <video
+      class="w-full h-[80vh] object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-label="Background video of starfield flying"
+    >
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-flying-through-a-starfield-403-large.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-                <!-- Desktop Navigation -->
-                <ul class="hidden md:flex items-center space-x-8 text-lg">
-                    <li><a href="#" class="text-primary-DEFAULT font-semibold transition-colors duration-300">Home</a></li>
-                    <li><a href="blog.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Blog</a></li>
-                    <li><a href="#features" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
-                    <li><a href="#about" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
-                    <li><a href="#contact" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
-                </ul>
+    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-center px-6 z-10">
+      <!-- Logo -->
+      <svg
+        class="w-20 h-20 mb-4 text-yellow-400"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        role="img"
+        aria-labelledby="logoTitle"
+        focusable="false"
+      >
+        <title id="logoTitle">Awakening & Awareness Logo</title>
+        <path d="M12 2l1.546 4.755h5.004l-4.047 2.94 1.546 4.755L12 11.51 7.951 14.45l1.546-4.755-4.047-2.94h5.004z" />
+      </svg>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </nav>
-        </div>
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="px-6 pb-4 space-y-3">
-                <li><a href="#" class="block text-primary-DEFAULT font-semibold transition-colors duration-300 mobile-link">Home</a></li>
-                <li><a href="blog.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Blog</a></li>
-                <li><a href="#features" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
-                <li><a href="#about" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
-                <li><a href="#contact" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
-            </ul>
-        </div>
-    </header>
+      <!-- Title and subtitle -->
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-wide mb-4 leading-tight">Awakening & Awareness</h1>
+      <p class="text-lg md:text-xl max-w-2xl text-gray-200 leading-relaxed">
+        Digital Craft & Spiritual Clarity for the Modern Seeker
+      </p>
+    </div>
+  </section>
 
-    <!-- Hero Section with Video -->
-    <section class="relative bg-black text-white pt-20">
-        <!-- Video Background -->
-        <video class="w-full h-[80vh] object-cover" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-flying-through-a-starfield-403-large.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Features</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <article class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300" tabindex="0" aria-label="Feature Clarity">
+          <h3 class="font-bold text-xl mb-2">Clarity</h3>
+          <p>Bringing simplicity and understanding to complex ideas.</p>
+        </article>
+        <article class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300" tabindex="0" aria-label="Feature Creativity">
+          <h3 class="font-bold text-xl mb-2">Creativity</h3>
+          <p>Innovative designs blending tradition with modern insights.</p>
+        </article>
+        <article class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300" tabindex="0" aria-label="Feature Community">
+          <h3 class="font-bold text-xl mb-2">Community</h3>
+          <p>Connecting seekers and creators across the globe.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        <!-- Overlay Content -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-center px-6">
-            <!-- Logo -->
-            <svg class="w-20 h-20 mb-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l1.546 4.755h5.004l-4.047 2.94 1.546 4.755L12 11.51 7.951 14.45l1.546-4.755-4.047-2.94h5.004z"/>
-            </svg>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">About Us</h2>
+      <p class="text-lg text-gray-600 max-w-prose mx-auto leading-relaxed">
+        Awakening & Awareness is a space for digital explorers and spiritual seekers.
+        Our mission is to bridge technology and mindfulness, guiding individuals toward balance.
+      </p>
+    </div>
+  </section>
 
-            <!-- Title -->
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-wide mb-4">Awakening & Awareness</h1>
-            <p class="text-lg md:text-xl text-gray-200 max-w-2xl">
-                Digital Craft & Spiritual Clarity for the Modern Seeker
-            </p>
-        </div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Contact</h2>
+      <p class="text-lg text-gray-600 mb-6 max-w-prose mx-auto leading-relaxed">
+        We’d love to hear from you. Reach out with your ideas and collaborations.
+      </p>
+      <a
+        href="mailto:info@awakening.com"
+        class="inline-block px-8 py-3 bg-indigo-600 text-white rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-400 transition"
+        role="button"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="p-6 bg-light rounded-xl shadow hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-3">Deep Insights</h3>
-                    <p class="text-gray-600">In-depth articles to expand your knowledge and perspective.</p>
-                </div>
-                <div class="p-6 bg-light rounded-xl shadow hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-3">Mindful Tech</h3>
-                    <p class="text-gray-600">Balancing innovation with awareness and clarity.</p>
-                </div>
-                <div class="p-6 bg-light rounded-xl shadow hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-3">Community</h3>
-                    <p class="text-gray-600">A shared space for learners and seekers of wisdom.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 text-center max-w-3xl">
-            <h2 class="text-3xl font-bold mb-6">About Tech Monk</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Tech Monk blends the world of modern technology with timeless wisdom. We believe in digital craft that uplifts and inspires, while maintaining clarity and balance in a fast-paced world.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center max-w-2xl">
-            <h2 class="text-3xl font-bold mb-6">Contact</h2>
-            <p class="text-gray-700 mb-6">Have questions or ideas? Let’s connect.</p>
-            <p class="text-gray-600">Email: dhileepraj777@gmail.com</p>
-            <p class="text-gray-600">Phone: +91 6379026089</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- About -->
-                <div class="col-span-2 md:col-span-1">
-                    <h3 class="text-xl font-bold mb-4">Tech Monk</h3>
-                    <p class="text-gray-400">Digital Craft & Awareness.</p>
-                </div>
-                <!-- Links -->
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                    </ul>
-                </div>
-                <!-- Follow Us -->
-                <div>
-                    <h4 class="font-semibold mb-4">Follow Us</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
-                    </ul>
-                </div>
-                <!-- Contact -->
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>dhileepraj777@gmail.com</li>
-                        <li>+91 6379026089</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
-                <p>&copy; 2025 Tech Monk. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if(!mobileMenu.classList.contains('hidden')) {
-                       mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('header-shadow');
-                } else {
-                    header.classList.remove('header-shadow');
-                }
-            });
-        });
-    </script>
+  <!-- Footer -->
+  <footer class="py-6 bg-gray-900 text-gray-400 text-center">
+    <p>&copy; 2025 Awakening & Awareness. All rights reserved.</p>
+  </footer>
 </body>
 </html>
