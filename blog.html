@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Tech Monk</title>
-    <meta name="description" content="Read the latest articles and insights on technology trends, digital safety, and responsible innovation from Tech Monk.">
-    <link rel="icon" href="https://placehold.co/32x32/667eea/ffffff?text=TM" type="image/x-icon">
-    
+    <meta name="description" content="Explore insightful articles and deep dives into the world of technology, from AI to web development.">
+    <link rel="icon" href="https://placehold.co/32x32/4285F4/ffffff?text=TM" type="image/x-icon">
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
-        // Custom Tailwind theme configuration
         tailwind.config = {
             theme: {
                 extend: {
@@ -25,7 +24,7 @@
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#4285F4', // Google Blue
+                            DEFAULT: '#4285F4',
                             hover: '#357ae8',
                         },
                         dark: '#1f2937',
@@ -38,7 +37,6 @@
     </script>
 
     <style>
-        /* A little bit of custom CSS for smooth transitions and header shadow */
         body {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -48,7 +46,7 @@
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-light text-gray-800 font-sans">
 
     <!-- Header -->
     <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
@@ -64,9 +62,9 @@
                 <ul class="hidden md:flex items-center space-x-8 text-lg">
                     <li><a href="index.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Home</a></li>
                     <li><a href="blog.html" class="text-primary-DEFAULT font-semibold transition-colors duration-300">Blog</a></li>
-                    <li><a href="index.html#features" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
-                    <li><a href="index.html#about" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
-                    <li><a href="index.html#contact" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
                 </ul>
 
                 <!-- Mobile Menu Button -->
@@ -82,88 +80,79 @@
             <ul class="px-6 pb-4 space-y-3">
                 <li><a href="index.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Home</a></li>
                 <li><a href="blog.html" class="block text-primary-DEFAULT font-semibold transition-colors duration-300 mobile-link">Blog</a></li>
-                <li><a href="index.html#features" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
-                <li><a href="index.html#about" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
-                <li><a href="index.html#contact" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <main>
-        <!-- Blog Header Section -->
-        <section id="blog-header" class="pt-32 pb-16 md:pt-40 md:pb-20 bg-light">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">
-                    The Tech Monk Blog
-                </h1>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600">
-                    Insights, tutorials, and discussions on technology, cybersecurity, and digital culture.
-                </p>
+    <main class="pt-24 pb-12 md:pt-32 md:pb-16">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight">Our Blog</h1>
+                <p class="text-lg text-gray-600 mt-4 max-w-xl mx-auto">Discover the latest in technology, web development, and digital trends.</p>
             </div>
-        </section>
 
-        <!-- Blog Grid Section -->
-        <section id="blog-posts" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    
-                    <!-- Blog Post Card 1 -->
-                    <a href="article.html" class="group block bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/4285F4/FFFFFF?text=AI+Ethics" alt="Blog post image on AI ethics" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="mb-4">
-                                <span class="text-sm font-semibold text-primary-DEFAULT bg-blue-100 py-1 px-3 rounded-full">Artificial Intelligence</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-dark mb-3">The Ethical Dilemmas of Modern AI</h3>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                As AI becomes more integrated into our lives, we must confront the complex ethical questions it raises...
-                            </p>
-                            <div class="mt-auto pt-4 border-t border-gray-100">
-                                <p class="text-sm text-gray-500">By Jane Doe • September 10, 2025</p>
-                            </div>
-                        </div>
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform transform hover:scale-105">
+                    <a href="blog-post.html" class="block">
+                        <img src="https://placehold.co/600x400/4285F4/ffffff?text=AI+in+Everyday+Life" alt="AI in Everyday Life" class="w-full h-48 object-cover">
                     </a>
-
-                    <!-- Blog Post Card 2 -->
-                    <a href="article.html" class="group block bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/34A853/FFFFFF?text=Cybersecurity" alt="Blog post image on Cybersecurity" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="mb-4">
-                                <span class="text-sm font-semibold text-green-600 bg-green-100 py-1 px-3 rounded-full">Cybersecurity</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-dark mb-3">5 Essential Steps to Secure Your Digital Life</h3>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Protecting your online accounts is more important than ever. Here are five simple yet powerful steps you can take today.
-                            </p>
-                            <div class="mt-auto pt-4 border-t border-gray-100">
-                                <p class="text-sm text-gray-500">By John Smith • September 5, 2025</p>
-                            </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="blog-post.html" class="block">
+                            <h2 class="text-xl font-bold text-dark mb-2 leading-tight">The Rise of AI in Everyday Life</h2>
+                        </a>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">From smart assistants to personalized recommendations, AI is transforming how we live and work.</p>
+                        <div class="flex items-center text-sm text-gray-500 mt-auto">
+                            <span class="mr-2">By John Doe</span>
+                            <span>•</span>
+                            <span class="ml-2">September 1, 2025</span>
                         </div>
-                    </a>
+                    </div>
+                </div>
 
-                    <!-- Blog Post Card 3 -->
-                    <a href="article.html" class="group block bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/FBBC05/FFFFFF?text=Digital+Wellbeing" alt="Blog post image on Digital Wellbeing" class="w-full h-56 object-cover">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="mb-4">
-                                <span class="text-sm font-semibold text-yellow-800 bg-yellow-100 py-1 px-3 rounded-full">Digital Wellbeing</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-dark mb-3">Finding Balance in a Hyper-Connected World</h3>
-                            <p class="text-gray-600 mb-4 flex-grow">
-                                Constant notifications and endless scrolling can be draining. Learn how to build healthier habits with your devices.
-                            </p>
-                            <div class="mt-auto pt-4 border-t border-gray-100">
-                                <p class="text-sm text-gray-500">By Alex Johnson • August 28, 2025</p>
-                            </div>
+                <!-- Article 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform transform hover:scale-105">
+                    <a href="#" class="block">
+                        <img src="https://placehold.co/600x400/F4B400/ffffff?text=Future+of+Web+Dev" alt="Future of Web Development" class="w-full h-48 object-cover">
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="#" class="block">
+                            <h2 class="text-xl font-bold text-dark mb-2 leading-tight">The Future of Web Development: 2025 and Beyond</h2>
+                        </a>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Explore the trends and technologies that will shape the web in the coming years, from new frameworks to cutting-edge design principles.</p>
+                        <div class="flex items-center text-sm text-gray-500 mt-auto">
+                            <span class="mr-2">By Jane Smith</span>
+                            <span>•</span>
+                            <span class="ml-2">August 28, 2025</span>
                         </div>
-                    </a>
+                    </div>
+                </div>
 
+                <!-- Article 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform transform hover:scale-105">
+                    <a href="#" class="block">
+                        <img src="https://placehold.co/600x400/0F9D58/ffffff?text=Cybersecurity+Tips" alt="Essential Cybersecurity Tips" class="w-full h-48 object-cover">
+                    </a>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <a href="#" class="block">
+                            <h2 class="text-xl font-bold text-dark mb-2 leading-tight">Essential Cybersecurity Tips for Everyone</h2>
+                        </a>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Learn how to protect your personal data online, from creating strong passwords to recognizing phishing scams.</p>
+                        <div class="flex items-center text-sm text-gray-500 mt-auto">
+                            <span class="mr-2">By Bob Johnson</span>
+                            <span>•</span>
+                            <span class="ml-2">August 20, 2025</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
+        </div>
     </main>
-    
+
     <!-- Footer -->
     <footer class="bg-dark text-white">
         <div class="container mx-auto px-6 py-12">
@@ -179,8 +168,8 @@
                     <ul class="space-y-2">
                         <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="index.html#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
                     </ul>
                 </div>
                 <!-- Follow Us -->
@@ -212,13 +201,11 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            // Toggle mobile menu
+            
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
             
-            // Close mobile menu when a link is clicked
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if(!mobileMenu.classList.contains('hidden')) {
@@ -227,7 +214,6 @@
                 });
             });
 
-            // Optional: Add shadow to header on scroll for better visibility
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
@@ -238,6 +224,5 @@
             });
         });
     </script>
-
 </body>
 </html>
