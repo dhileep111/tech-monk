@@ -1,218 +1,101 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article - The Ethical Dilemmas of Modern AI</title>
-    <meta name="description" content="A deep dive into the ethical challenges and considerations of modern artificial intelligence.">
-    <link rel="icon" href="https://placehold.co/32x32/667eea/ffffff?text=TM" type="image/x-icon">
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        // Custom Tailwind theme configuration
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: {
-                            DEFAULT: '#4285F4', // Google Blue
-                            hover: '#357ae8',
-                        },
-                        dark: '#1f2937',
-                        light: '#f8f9fa',
-                        medium: '#e5e7eb',
-                    }
-                }
-            }
-        }
-    </script>
+from flask import Flask, request, jsonify, render_template
 
-    <style>
-        /* A little bit of custom CSS for smooth transitions and header shadow */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .header-shadow {
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
-        }
-    </style>
-</head>
-<body class="bg-white text-gray-800 font-sans">
+app = Flask(__name__, template_folder='templates')
 
-    <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
-        <div class="container mx-auto px-6 py-4">
-            <nav class="flex items-center justify-between">
-                <!-- Logo and Site Title -->
-                <a href="index.html" class="flex items-center space-x-3">
-                    <img src="https://placehold.co/48x48/4285F4/ffffff?text=TM" alt="Tech Monk Logo" class="w-10 h-10 rounded-full">
-                    <span class="text-2xl font-bold text-gray-800">Tech Monk</span>
-                </a>
-                
-                <!-- Desktop Navigation -->
-                <ul class="hidden md:flex items-center space-x-8 text-lg">
-                    <li><a href="index.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Home</a></li>
-                    <li><a href="blog.html" class="text-primary-DEFAULT font-semibold transition-colors duration-300">Blog</a></li>
-                    <li><a href="index.html#features" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
-                    <li><a href="index.html#about" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
-                    <li><a href="index.html#contact" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
-                </ul>
+# A simple dictionary to store your blog post data
+blog_posts = {
+    'ai-ethics': {
+        'title': 'The Ethical Dilemmas of Modern AI',
+        'subtitle': 'A look into the moral and societal challenges we face as artificial intelligence becomes more advanced.',
+        'image': 'https://placehold.co/1000x500/4285F4/FFFFFF?text=AI+Ethics',
+        'image_alt': 'A stylized image representing AI ethics and responsibility',
+        'author': 'Jane Doe',
+        'date': 'September 10, 2025',
+        'content': [
+            "Artificial intelligence is no longer a futuristic concept; it is an intrinsic part of our present, shaping everything from our daily recommendations to complex medical diagnoses. As its capabilities grow, so too do the ethical questions surrounding its development and deployment.",
+            "One of the most pressing concerns is **algorithmic bias**. AI systems learn from data, and if that data reflects existing societal prejudices—be it racial, gender, or socioeconomic—the AI will not only learn these biases but may also amplify them. This can lead to unfair outcomes in critical areas like loan approvals, hiring decisions, and criminal justice. Ensuring diverse and representative training data is a crucial first step, but it is not a complete solution. We also need transparent auditing processes to regularly check for and mitigate bias.",
+            "Another significant dilemma revolves around **privacy and surveillance**. AI systems require vast amounts of data to function effectively. This often involves collecting personal information, sometimes without explicit user consent or a clear understanding of how it will be used. The line between personalized service and intrusive surveillance becomes blurred. For example, AI-powered facial recognition can be a powerful tool for law enforcement, but it also raises serious questions about public surveillance and individual freedoms.",
+            "The issue of **accountability** is also a complex puzzle. When an autonomous vehicle causes an accident, who is at fault? Is it the programmer, the company that developed the software, or the user? As AI takes on more decision-making roles, the traditional legal frameworks are struggling to keep up. Establishing clear lines of responsibility is vital for public trust and for the safe integration of these technologies into society.",
+            "Finally, we must consider the broader societal impact on **employment**. While AI has the potential to automate mundane tasks and create new, higher-skilled jobs, it also threatens to displace workers in various sectors. The ethical imperative here is to manage this transition responsibly, providing educational resources and social safety nets for those whose livelihoods are affected.",
+            "The journey of AI is not just about technological advancement, but about a collective ethical reckoning. We have a responsibility to guide its development in a way that prioritizes fairness, protects privacy, and ensures a more equitable future for everyone."
+        ]
+    },
+    'cybersecurity': {
+        'title': '5 Essential Steps to Secure Your Digital Life',
+        'subtitle': 'Protecting your online accounts is more important than ever. Here are five simple yet powerful steps you can take today.',
+        'image': 'https://placehold.co/600x400/34A853/FFFFFF?text=Cybersecurity',
+        'image_alt': 'A stylized image representing cybersecurity with a padlock',
+        'author': 'John Smith',
+        'date': 'September 5, 2025',
+        'content': [
+            "With an ever-increasing amount of our personal and professional lives conducted online, the need for robust cybersecurity has never been more critical. Here are five simple, yet powerful, steps you can take right now to secure your digital life.",
+            "**1. Use Strong, Unique Passwords and a Password Manager:** The weakest link in digital security is often a reusable or simple password. Ditch '123456' and 'password.' Instead, use a password manager like 1Password or LastPass to generate and store unique, complex passwords for every account. This single step will drastically reduce your risk of a data breach.",
+            "**2. Enable Multi-Factor Authentication (MFA):** MFA adds an extra layer of security beyond just a password. Even if a hacker gets your password, they can't log in without the second factor, such as a code sent to your phone or generated by an authenticator app. Most major services like Google, Microsoft, and social media platforms offer this for free.",
+            "**3. Be Wary of Phishing Attempts:** Phishing emails and messages are a primary vector for cyberattacks. Always be skeptical of urgent requests for personal information, especially from unfamiliar senders. Check the sender's email address for authenticity and never click on suspicious links or download attachments from unknown sources.",
+            "**4. Keep Your Software Updated:** Software updates often contain critical security patches that fix vulnerabilities. Make sure your operating system, web browser, and all applications are set to update automatically. This simple habit can protect you from newly discovered exploits.",
+            "**5. Back Up Your Data Regularly:** Ransomware and other forms of malware can encrypt or destroy your files. Having a recent backup of your important data, stored on an external hard drive or in the cloud, ensures that you can recover quickly from an attack without having to pay a ransom."
+        ]
+    },
+    'digital-wellbeing': {
+        'title': 'Finding Balance in a Hyper-Connected World',
+        'subtitle': 'Constant notifications and endless scrolling can be draining. Learn how to build healthier habits with your devices.',
+        'image': 'https://placehold.co/600x400/FBBC05/FFFFFF?text=Digital+Wellbeing',
+        'image_alt': 'A stylized image representing digital wellbeing with a balanced scale',
+        'author': 'Alex Johnson',
+        'date': 'August 28, 2025',
+        'content': [
+            "In our hyper-connected world, our digital lives are often inseparable from our physical ones. While technology offers incredible convenience and connection, it can also lead to burnout, anxiety, and a feeling of being constantly 'on.' Finding a healthy balance is crucial for our mental and physical well-being.",
+            "One effective strategy is to create **intentional 'offline' periods.** Designate specific times each day or week where you disconnect completely. This could be during meals, before bed, or for an hour on the weekend. Use this time to read a physical book, go for a walk, or spend quality time with friends and family without distractions.",
+            "Another approach is to **curate your digital environment.** Unsubscribe from newsletters you never read, unfollow social media accounts that make you feel bad, and turn off unnecessary notifications. By decluttering your digital space, you reduce the constant pull of your phone and reclaim control over your attention.",
+            "**Mindful tech usage** is also key. Instead of mindlessly scrolling, ask yourself why you're picking up your device. Is it to complete a specific task, or are you simply looking for a distraction? By becoming more aware of your habits, you can make more conscious choices about how and when you use technology.",
+            "Finally, remember the importance of **physical connection**. Technology is great for staying in touch, but it's not a substitute for real-world interactions. Make an effort to meet up with friends, join a club, or volunteer. These activities can help ground you and remind you of the richness of life beyond the screen."
+        ]
+    },
+    'intro-to-cybersecurity': {
+        'title': 'Introduction to Cybersecurity: Protecting Your Digital World',
+        'subtitle': 'An animated guide to understanding the basics of cybersecurity and how to stay safe online.',
+        'image': 'https://placehold.co/1000x500/FF5733/FFFFFF?text=Cybersecurity+Animation',
+        'image_alt': 'A stylized animated scene with security icons and code',
+        'author': 'Tech Monk Team',
+        'date': 'September 10, 2025',
+        'content': [
+            "Welcome to our animated guide on cybersecurity. In a world where our lives are increasingly digital, understanding how to protect yourself is more important than ever. This guide will walk you through the fundamental concepts of digital security, explained in a simple and visual way.  Let's dive in.",
+            "**What is Cybersecurity?** At its core, cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes. Think of it as putting a lock on your digital front door.",
+            "**Common Threats to Look Out For:** One of the most common threats is **malware**—short for malicious software. This includes viruses, spyware, and ransomware that can infect your computer. Another major threat is **phishing**, where attackers trick you into revealing personal information through fake emails or websites. Understanding these threats is the first step to defending against them.",
+            "**Best Practices for Digital Safety:** Protecting yourself doesn't require advanced technical skills. Start with the basics: use strong, unique passwords for every account, enable two-factor authentication (2FA) wherever possible, and be cautious of suspicious links or attachments. Regularly updating your software and backing up your important data are also crucial habits.",
+            "**The Human Element:** Technology is only one part of the security puzzle. The most significant factor is often human behavior. Being aware of the risks and making smart choices online—like thinking before you click—can prevent a majority of cyberattacks. Cybersecurity is a shared responsibility, and every user plays a role in making the digital world safer."
+        ]
+    }
+}
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </nav>
-        </div>
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <ul class="px-6 pb-4 space-y-3">
-                <li><a href="index.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Home</a></li>
-                <li><a href="blog.html" class="block text-primary-DEFAULT font-semibold transition-colors duration-300 mobile-link">Blog</a></li>
-                <li><a href="index.html#features" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
-                <li><a href="index.html#about" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
-                <li><a href="index.html#contact" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
-            </ul>
-        </div>
-    </header>
 
-    <main>
-        <!-- Article Header Section -->
-        <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-light">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">
-                    The Ethical Dilemmas of Modern AI
-                </h1>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600">
-                    A look into the moral and societal challenges we face as artificial intelligence becomes more advanced.
-                </p>
-                <div class="mt-8 text-gray-500 text-sm">
-                    <p>By <span class="font-semibold text-gray-700">Jane Doe</span> • September 10, 2025</p>
-                </div>
-            </div>
-        </section>
+# Route to serve the homepage (index.html)
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-        <!-- Article Content Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <img src="https://placehold.co/1000x500/4285F4/FFFFFF?text=AI+Ethics" alt="A stylized image representing AI ethics and responsibility" class="w-full h-auto object-cover rounded-xl mb-12 shadow-xl">
-                
-                <div class="prose prose-lg mx-auto text-gray-800">
-                    <p class="text-xl leading-relaxed font-medium">
-                        Artificial intelligence is no longer a futuristic concept; it is an intrinsic part of our present, shaping everything from our daily recommendations to complex medical diagnoses. As its capabilities grow, so too do the ethical questions surrounding its development and deployment.
-                    </p>
+# Route to serve the blog page (blog.html)
+@app.route('/blog.html')
+def blog():
+    return render_template('blog.html', articles=blog_posts.items())
 
-                    <p>
-                        One of the most pressing concerns is **algorithmic bias**. AI systems learn from data, and if that data reflects existing societal prejudices—be it racial, gender, or socioeconomic—the AI will not only learn these biases but may also amplify them. This can lead to unfair outcomes in critical areas like loan approvals, hiring decisions, and criminal justice. Ensuring diverse and representative training data is a crucial first step, but it is not a complete solution. We also need transparent auditing processes to regularly check for and mitigate bias.
-                    </p>
-                    
-                    <p>
-                        Another significant dilemma revolves around **privacy and surveillance**. AI systems require vast amounts of data to function effectively. This often involves collecting personal information, sometimes without explicit user consent or a clear understanding of how it will be used. The line between personalized service and intrusive surveillance becomes blurred. For example, AI-powered facial recognition can be a powerful tool for law enforcement, but it also raises serious questions about public surveillance and individual freedoms.
-                    </p>
+# Route to serve a specific article page (e.g., /articles/ai-ethics)
+@app.route('/articles/<slug>')
+def article(slug):
+    article_data = blog_posts.get(slug)
+    if not article_data:
+        return "Article not found", 404
+    return render_template('article.html', article=article_data)
 
-                    <p>
-                        The issue of **accountability** is also a complex puzzle. When an autonomous vehicle causes an accident, who is at fault? Is it the programmer, the company that developed the software, or the user? As AI takes on more decision-making roles, the traditional legal frameworks are struggling to keep up. Establishing clear lines of responsibility is vital for public trust and for the safe integration of these technologies into society.
-                    </p>
-                    
-                    <p>
-                        Finally, we must consider the broader societal impact on **employment**. While AI has the potential to automate mundane tasks and create new, higher-skilled jobs, it also threatens to displace workers in various sectors. The ethical imperative here is to manage this transition responsibly, providing educational resources and social safety nets for those whose livelihoods are affected.
-                    </p>
-                    
-                    <p>
-                        The journey of AI is not just about technological advancement, but about a collective ethical reckoning. We have a responsibility to guide its development in a way that prioritizes fairness, protects privacy, and ensures a more equitable future for everyone.
-                    </p>
-                </div>
-            </div>
-        </section>
+# Route to handle the contact form submission
+@app.route('/api/contact', methods=['POST'])
+def contact():
+    data = request.get_json()
+    name = data.get('name')
+    email = data.get('email')
+    message = data.get('message')
+    print(f"Contact form: {name} <{email}>: {message}")
+    return jsonify(success=True)
 
-    </main>
-    
-    <!-- Footer -->
-    <footer class="bg-dark text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- About -->
-                <div class="col-span-2 md:col-span-1">
-                    <h3 class="text-xl font-bold mb-4">Tech Monk</h3>
-                    <p class="text-gray-400">Digital Craft & Awareness.</p>
-                </div>
-                <!-- Links -->
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="index.html#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                    </ul>
-                </div>
-                <!-- Follow Us -->
-                <div>
-                    <h4 class="font-semibold mb-4">Follow Us</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
-                    </ul>
-                </div>
-                <!-- Contact -->
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>dhileepraj777@gmail.com</li>
-                        <li>+91 6379026089</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
-                <p>&copy; 2025 Tech Monk. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-            
-            // Toggle mobile menu
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu when a link is clicked
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if(!mobileMenu.classList.contains('hidden')) {
-                       mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
-            // Add shadow to header on scroll
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('header-shadow');
-                } else {
-                    header.classList.remove('header-shadow');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+if __name__ == '__main__':
+    app.run(debug=True)
