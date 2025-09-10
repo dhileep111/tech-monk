@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Passwords - Tech Monk</title>
-    <meta name="description" content="An ultimate guide to online security, covering 2FA, password managers, and safe browsing habits.">
+    <title>Article - The Ethical Dilemmas of Modern AI</title>
+    <meta name="description" content="A deep dive into the ethical challenges and considerations of modern artificial intelligence.">
     <link rel="icon" href="https://placehold.co/32x32/667eea/ffffff?text=TM" type="image/x-icon">
     
-    <!-- Google Fonts: Roboto -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +21,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
                         primary: {
@@ -89,67 +89,57 @@
         </div>
     </header>
 
-    <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <!-- Back to Blog button -->
-            <a href="blog.html" class="inline-flex items-center text-primary-DEFAULT hover:underline mb-8 font-medium">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back to Blog
-            </a>
-
-            <!-- Blog Post Header -->
-            <header class="mb-10">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">Beyond Passwords: The Ultimate Guide to Online Security</h1>
-                <p class="text-gray-600 text-lg">By John Doe • October 1, 2025 • **Cybersecurity**</p>
-            </header>
-            
-            <!-- Article Image -->
-            <div class="mb-10 rounded-xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="https://placehold.co/1000x500/4285F4/ffffff?text=Secure+Your+Digital+Life" alt="A visual representation of online security, with a digital shield icon over a web browser interface." class="w-full h-auto object-cover">
+    <main>
+        <!-- Article Header Section -->
+        <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-light">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">
+                    The Ethical Dilemmas of Modern AI
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600">
+                    A look into the moral and societal challenges we face as artificial intelligence becomes more advanced.
+                </p>
+                <div class="mt-8 text-gray-500 text-sm">
+                    <p>By <span class="font-semibold text-gray-700">Jane Doe</span> • September 10, 2025</p>
+                </div>
             </div>
+        </section>
 
-            <!-- Article Content -->
-            <article class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                <p>You’ve heard it a thousand times: "Use a strong password!" While that's still the first line of defense, modern online security is about so much more. In today's digital world, where we live, work, and connect online, our data is a prime target for cybercriminals. Protecting yourself requires moving beyond the basics.</p>
+        <!-- Article Content Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <img src="https://placehold.co/1000x500/4285F4/FFFFFF?text=AI+Ethics" alt="A stylized image representing AI ethics and responsibility" class="w-full h-auto object-cover rounded-xl mb-12 shadow-xl">
+                
+                <div class="prose prose-lg mx-auto text-gray-800">
+                    <p class="text-xl leading-relaxed font-medium">
+                        Artificial intelligence is no longer a futuristic concept; it is an intrinsic part of our present, shaping everything from our daily recommendations to complex medical diagnoses. As its capabilities grow, so too do the ethical questions surrounding its development and deployment.
+                    </p>
 
-                <p>This guide will walk you through the essential tools and habits you need to secure your digital life, from your email to your online banking.</p>
+                    <p>
+                        One of the most pressing concerns is **algorithmic bias**. AI systems learn from data, and if that data reflects existing societal prejudices—be it racial, gender, or socioeconomic—the AI will not only learn these biases but may also amplify them. This can lead to unfair outcomes in critical areas like loan approvals, hiring decisions, and criminal justice. Ensuring diverse and representative training data is a crucial first step, but it is not a complete solution. We also need transparent auditing processes to regularly check for and mitigate bias.
+                    </p>
+                    
+                    <p>
+                        Another significant dilemma revolves around **privacy and surveillance**. AI systems require vast amounts of data to function effectively. This often involves collecting personal information, sometimes without explicit user consent or a clear understanding of how it will be used. The line between personalized service and intrusive surveillance becomes blurred. For example, AI-powered facial recognition can be a powerful tool for law enforcement, but it also raises serious questions about public surveillance and individual freedoms.
+                    </p>
 
-                <h3 class="text-3xl font-bold mt-12 mb-4">1. The Power of Two-Factor Authentication (2FA)</h3>
-                <p>Think of Two-Factor Authentication (2FA) as a second lock on your digital door. Even if a thief gets your key (your password), they can't get in without the second factor. This "second factor" is a code sent to your phone, a fingerprint scan, or a token from an app.</p>
-                <p>Enabling 2FA is one of the single most effective ways to prevent unauthorized access to your accounts. Most major platforms, including Google, Facebook, and many banks, offer this feature. Always enable it whenever you have the option.</p>
+                    <p>
+                        The issue of **accountability** is also a complex puzzle. When an autonomous vehicle causes an accident, who is at fault? Is it the programmer, the company that developed the software, or the user? As AI takes on more decision-making roles, the traditional legal frameworks are struggling to keep up. Establishing clear lines of responsibility is vital for public trust and for the safe integration of these technologies into society.
+                    </p>
+                    
+                    <p>
+                        Finally, we must consider the broader societal impact on **employment**. While AI has the potential to automate mundane tasks and create new, higher-skilled jobs, it also threatens to displace workers in various sectors. The ethical imperative here is to manage this transition responsibly, providing educational resources and social safety nets for those whose livelihoods are affected.
+                    </p>
+                    
+                    <p>
+                        The journey of AI is not just about technological advancement, but about a collective ethical reckoning. We have a responsibility to guide its development in a way that prioritizes fairness, protects privacy, and ensures a more equitable future for everyone.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                <h3 class="text-3xl font-bold mt-12 mb-4">2. Why Password Managers Are Your Best Friend</h3>
-                <p>You're a unique person, and your passwords should be too. Reusing the same password across multiple sites is incredibly risky. If one site is compromised, every account that uses that same password is now vulnerable.</p>
-                <p>A password manager solves this problem by generating and securely storing unique, complex passwords for every single one of your accounts. You only need to remember one master password to unlock the manager. It might sound intimidating, but it's a simple change that dramatically improves your security.</p>
-
-                <h3 class="text-3xl font-bold mt-12 mb-4">3. Spotting Phishing Scams: The Digital Imposter</h3>
-                <p>Phishing is a type of cybercrime where a scammer pretends to be a legitimate person or organization to trick you into revealing personal information. These attacks often come in the form of emails or text messages with urgent messages and deceptive links.</p>
-
-                <p>Here are some red flags to look for:</p>
-                <ul>
-                    <li>**Urgent or threatening language:** "Your account will be suspended if you don't click this link now!"</li>
-                    <li>**Suspicious links:** Hover over a link before clicking. Does the URL match the company it's supposed to be from?</li>
-                    <li>**Poor grammar or spelling:** Legitimate organizations rarely send messages with obvious errors.</li>
-                </ul>
-
-                <h3 class="text-3xl font-bold mt-12 mb-4">4. The Basics of Secure Browsing</h3>
-                <p>Beyond your passwords, your everyday browsing habits can make a huge difference.</p>
-
-                <ul>
-                    <li>**Look for the Lock:** Always check for the lock icon in your browser's address bar. This indicates that the website uses <strong>HTTPS</strong> (Hypertext Transfer Protocol Secure), which encrypts the data you send and receive.</li>
-                    <li>**Be Careful on Public Wi-Fi:** Public Wi-Fi networks in cafes or airports are often not secure. Avoid accessing sensitive accounts, like your bank, on these networks. If you must, use a VPN (Virtual Private Network) to encrypt your connection.</li>
-                    <li>**Keep Your Software Updated:** Software updates often include security patches that fix vulnerabilities. Make sure your operating system, browser, and antivirus software are always up to date.</li>
-                </ul>
-
-                <h3 class="text-3xl font-bold mt-12 mb-4">Conclusion</h3>
-                <p>Online security is an ongoing practice, not a one-time fix. By moving beyond just strong passwords and adopting these simple habits—like using 2FA, a password manager, and being vigilant against scams—you can take powerful steps to protect your digital identity. Taking control of your digital security is about being proactive, not reactive.</p>
-            </article>
-
-        </div>
     </main>
-
+    
     <!-- Footer -->
     <footer class="bg-dark text-white">
         <div class="container mx-auto px-6 py-12">
@@ -198,7 +188,7 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
-
+            
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
@@ -213,7 +203,7 @@
                 });
             });
 
-            // Optional: Add shadow to header on scroll for better visibility
+            // Add shadow to header on scroll
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
@@ -224,6 +214,5 @@
             });
         });
     </script>
-
 </body>
 </html>
