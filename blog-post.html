@@ -93,6 +93,9 @@
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <button id="skip-video-button" class="absolute bottom-4 right-4 z-50 px-4 py-2 bg-gray-800/50 text-white font-semibold rounded-full text-sm backdrop-blur-sm hover:bg-gray-700/70 transition-colors duration-300">
+            Skip Video
+        </button>
     </div>
 
     <!-- Header -->
@@ -149,21 +152,21 @@
 
             <!-- Article Image -->
             <figure class="mb-10 fade-in-up">
-                <img src="https://images.unsplash.com/photo-1507146153589-fa0799797305?q=80&w=2940&auto=format&fit=crop" alt="The Rise of AI in Everyday Life" class="w-full h-auto rounded-xl shadow-lg">
-                <figcaption class="mt-4 text-center text-sm text-gray-500">A conceptual image representing the integration of AI into daily life.</figcaption>
+                <img src="https://placehold.co/1200x600/4285F4/ffffff?text=AI+in+Everyday+Life" alt="A conceptual image representing the integration of AI into daily life." class="w-full h-auto rounded-xl shadow-lg">
+                <figcaption class="mt-4 text-center text-sm text-gray-500">A placeholder image representing the integration of AI into daily life.</figcaption>
             </figure>
 
             <!-- Article Content -->
             <section class="prose prose-lg mx-auto text-gray-700 leading-relaxed max-w-none">
-                <p class="mb-6 fade-in">Artificial intelligence is no longer a concept confined to science fiction; it is an integral part of our daily lives...</p>
-                <p class="mb-6 fade-in">The ethical implications of this rapid AI integration are a growing concern...</p>
-                <p class="mb-6 fade-in">Looking ahead, the possibilities for AI are boundless...</p>
+                <p class="mb-6 fade-in">Artificial intelligence is no longer a concept confined to science fiction; it is an integral part of our daily lives. From the moment we wake up and ask our smart assistant for the weather, to the personalized movie recommendations we receive in the evening, AI is at work behind the scenes, making our lives more convenient and connected. This silent revolution is driven by powerful algorithms that can process vast amounts of data to learn, predict, and automate tasks that were once exclusively human.</p>
+                <p class="mb-6 fade-in">The ethical implications of this rapid AI integration are a growing concern. Issues of data privacy, algorithmic bias, and the future of work are at the forefront of the conversation. As AI systems become more autonomous, it is crucial to establish clear guidelines and regulations to ensure they are developed and used responsibly. We must ask ourselves who is accountable for the decisions made by an algorithm and how we can prevent biases from being amplified by these systems. Transparency and explainability in AI models will be key to building public trust.</p>
+                <p class="mb-6 fade-in">Looking ahead, the possibilities for AI are boundless. Advancements in areas like natural language processing, computer vision, and machine learning are paving the way for innovations in healthcare, education, and environmental conservation. For example, AI-powered diagnostic tools can help doctors identify diseases earlier, while AI-driven research can accelerate the discovery of new medicines. However, harnessing this potential requires a collective effort to address the challenges and ensure that AI serves humanity's best interests.</p>
             </section>
             
             <div class="mt-12 text-center fade-in">
-                <a href="blog.html" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-base font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                <a href="#header" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-base font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-200">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    Back to Blog
+                    Back to Top
                 </a>
             </div>
         </article>
@@ -216,9 +219,19 @@
         document.addEventListener('DOMContentLoaded', function () {
             const introVideoOverlay = document.getElementById('intro-video-overlay');
             const introVideo = document.getElementById('intro-video');
-            introVideo.onended = function() {
+            const skipVideoButton = document.getElementById('skip-video-button');
+            
+            // Function to hide the video overlay
+            function hideVideoOverlay() {
+                introVideo.pause();
                 introVideoOverlay.classList.add('hidden');
-            };
+            }
+            
+            // Hide the overlay when the video ends
+            introVideo.onended = hideVideoOverlay;
+
+            // Hide the overlay when the skip button is clicked
+            skipVideoButton.addEventListener('click', hideVideoOverlay);
 
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
