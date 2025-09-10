@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of AI in Everyday Life - Tech Monk</title>
+    <meta name="description" content="From smart assistants to personalized recommendations, AI is transforming how we live and work. We explore the ethical implications and future possibilities of this powerful technology.">
+    <link rel="icon" href="https://placehold.co/32x32/4285F4/ffffff?text=TM" type="image/x-icon">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4285F4',
+                            hover: '#357ae8',
+                        },
+                        dark: '#1f2937',
+                        light: '#f8f9fa',
+                        medium: '#e5e7eb',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .header-shadow {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+        }
+
+        /* Intro video overlay */
+        #intro-video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #intro-video-overlay video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #intro-video-overlay.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Intro Video -->
+    <div id="intro-video-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <!-- Logo and Site Title -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://placehold.co/48x48/4285F4/ffffff?text=TM" alt="Tech Monk Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-2xl font-bold text-gray-800">Tech Monk</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8 text-lg">
+                    <li><a href="index.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Home</a></li>
+                    <li><a href="blog.html" class="text-primary-DEFAULT font-semibold transition-colors duration-300">Blog</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="px-6 pb-4 space-y-3">
+                <li><a href="index.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Home</a></li>
+                <li><a href="blog.html" class="block text-primary-DEFAULT font-semibold transition-colors duration-300 mobile-link">Blog</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
+                <li><a href="#" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-12 md:pt-32 md:pb-16">
+        <article class="container mx-auto px-6 max-w-4xl">
+            <!-- Article Header -->
+            <header class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark leading-tight mb-4">
+                    The Rise of AI in Everyday Life
+                </h1>
+                <p class="text-lg text-gray-600 mb-6">From smart assistants to personalized recommendations, AI is transforming how we live and work.</p>
+                <div class="text-sm text-gray-500">
+                    <p>By <span class="font-medium text-dark">John Doe</span> on September 1, 2025</p>
+                </div>
+            </header>
+
+            <!-- Article Image -->
+            <figure class="mb-10 fade-in-up">
+                <img src="https://images.unsplash.com/photo-1507146153589-fa0799797305?q=80&w=2940&auto=format&fit=crop" alt="The Rise of AI in Everyday Life" class="w-full h-auto rounded-xl shadow-lg">
+                <figcaption class="mt-4 text-center text-sm text-gray-500">A conceptual image representing the integration of AI into daily life.</figcaption>
+            </figure>
+
+            <!-- Article Content -->
+            <section class="prose prose-lg mx-auto text-gray-700 leading-relaxed max-w-none">
+                <p class="mb-6 fade-in">Artificial intelligence is no longer a concept confined to science fiction; it is an integral part of our daily lives...</p>
+                <p class="mb-6 fade-in">The ethical implications of this rapid AI integration are a growing concern...</p>
+                <p class="mb-6 fade-in">Looking ahead, the possibilities for AI are boundless...</p>
+            </section>
+            
+            <div class="mt-12 text-center fade-in">
+                <a href="blog.html" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-full text-base font-semibold text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Blog
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div class="col-span-2 md:col-span-1">
+                    <h3 class="text-xl font-bold mb-4">Tech Monk</h3>
+                    <p class="text-gray-400">Digital Craft & Awareness.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>dhileepraj777@gmail.com</li>
+                        <li>+91 6379026089</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+                <p>&copy; 2025 Tech Monk. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const introVideoOverlay = document.getElementById('intro-video-overlay');
+            const introVideo = document.getElementById('intro-video');
+            introVideo.onended = function() {
+                introVideoOverlay.classList.add('hidden');
+            };
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')) {
+                       mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('header-shadow');
+                } else {
+                    header.classList.remove('header-shadow');
+                }
+            });
+
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in');
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            animatedElements.forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('is-visible');
+                }
+            });
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => {
+                if (!el.classList.contains('is-visible')) {
+                    observer.observe(el);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
