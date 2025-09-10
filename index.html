@@ -1,648 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Monk - The Next Level</title>
-    <meta name="description" content="Tech Monk – Raising awareness and providing insights about technology trends, safety, and innovation for everyone.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Tech Monk - Digital Craft & Awareness</title>
+    <meta name="description" content="Tech Monk provides insights into technology trends, digital safety, and responsible innovation to empower users everywhere.">
+    <link rel="icon" href="https://placehold.co/32x32/667eea/ffffff?text=TM" type="image/x-icon">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        // Custom Tailwind theme configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4285F4', // Google Blue
+                            hover: '#357ae8',
+                        },
+                        dark: '#1f2937',
+                        light: '#f8f9fa',
+                        medium: '#e5e7eb',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #ff6b6b;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --card-bg: #ffffff;
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        /* A little bit of custom CSS for smooth transitions and header shadow */
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative;
-        }
-        /* Logo styles */
-        .site-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            object-fit: contain;
-            margin-right: 1rem;
-            margin-left: 0;
-            box-shadow: var(--shadow-light);
-        }
-        .site-title {
-            font-size: 1.35rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 1px;
-            margin-right: auto;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin-left: auto;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        /* Hamburger styles */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1001;
-        }
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 4px;
-            margin: 4px 0;
-            background: var(--primary-color);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        /* Hamburger for mobile */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .site-logo {
-                width: 38px;
-                height: 38px;
-                margin: 0 0.5rem 0 0;
-            }
-            .site-title {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                position: absolute;
-                top: 60px;
-                right: 16px;
-                width: 180px;
-                background: #fff;
-                box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-                border-radius: 12px;
-                padding: 1.5rem 0;
-                transition: opacity 0.3s, visibility 0.3s;
-                opacity: 0;
-                visibility: hidden;
-                z-index: 1000;
-            }
-            .nav-links.open {
-                opacity: 1;
-                visibility: visible;
-            }
-            .nav-links a {
-                color: var(--primary-color);
-                font-size: 1.1rem;
-            }
-        }
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 60px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-            z-index: 1;
-        }
-        .hero-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-            flex-wrap: wrap;
-        }
-        .welcome-image {
-            width: 180px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: var(--shadow-light);
-            background: #fff;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            max-width: 600px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-        .hero p {
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-            opacity: 0.92;
-        }
-        .hero-desc {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.94;
-        }
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
-        .cta-button:hover {
-            background: #ff5252;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-        }
-        section {
-            padding: 80px 0;
-            background: var(--light-bg);
-            border-bottom: 1px solid #e0e0e0;
-        }
-        h1, h2, h3 {
-            color: var(--text-color);
-            font-weight: 700;
-        }
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-        .features {
-            background: var(--light-bg);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-deep);
-        }
-        .card-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-        .card p {
-            color: #666;
-            line-height: 1.7;
-        }
-        .about {
-            background: var(--card-bg);
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .about-text h2 {
-            text-align: left;
-            margin-bottom: 1.5rem;
-        }
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-        .about-image-container {
-            position: relative;
-            text-align: center;
-        }
-        .about-image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: var(--shadow-deep);
-        }
-        .about-image-container::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 4rem 0 1.5rem;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #ecf0f1;
-        }
-        .footer-section p,
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            line-height: 1.8;
-            transition: color 0.3s ease;
-        }
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #95a5a6;
-        }
-        @media (max-width: 900px) {
-            .hero-flex {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-            .welcome-image {
-                width: 120px;
-                margin: 0 auto;
-            }
-            .hero-content {
-                text-align: center;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.1rem;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            .about-image-container {
-                order: -1;
-            }
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .scale-in.is-visible {
-            opacity: 1;
-            transform: scale(1);
+        .header-shadow {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav class="container">
-            <img src="images/tech monk.png" alt="Tech Monk Logo" class="site-logo">
-            <div class="site-title">Tech Monk</div>
-            <button class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-shadow">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <!-- Logo and Site Title -->
+                <a href="#home" class="flex items-center space-x-3">
+                    <img src="https://placehold.co/48x48/4285F4/ffffff?text=TM" alt="Tech Monk Logo" class="w-10 h-10 rounded-full">
+                    <span class="text-2xl font-bold text-gray-800">Tech Monk</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8 text-lg">
+                    <li><a href="#home" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Home</a></li>
+                    <li><a href="blog.html" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Blog</a></li>
+                    <li><a href="#features" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Features</a></li>
+                    <li><a href="#about" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">About</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="px-6 pb-4 space-y-3">
+                 <li><a href="#home" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Home</a></li>
+                 <li><a href="blog.html" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Blog</a></li>
+                 <li><a href="#features" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Features</a></li>
+                 <li><a href="#about" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">About</a></li>
+                 <li><a href="#contact" class="block text-gray-600 hover:text-primary-DEFAULT transition-colors duration-300 mobile-link">Contact</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    <section class="hero" id="home">
-        <div class="hero-flex">
-            <img src="images/tech monk.png" alt="Tech Monk main illustration" class="welcome-image">
-            <div class="hero-content">
-                <h1>Welcome to Tech Monk – Digital Craft & Awareness</h1>
-                <p>
-                    Tech Monk is a platform dedicated to spreading awareness about the latest trends, safety, and innovations in the technology industry. 
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-light">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-dark leading-tight mb-6">
+                    Navigate the Digital World with <span class="text-primary-DEFAULT">Clarity</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10">
+                    Tech Monk is your guide to understanding modern technology. We provide clear insights on digital trends, cybersecurity, and responsible innovation to help you stay safe and informed.
                 </p>
-                <div class="hero-desc">
-                    Our mission is to empower everyone – from students to professionals and everyday users – with reliable knowledge about digital best practices, cybersecurity, data privacy, and the impact of technology on society.<br><br>
-                    We believe technology should be accessible, safe, and beneficial for all. Explore our resources, articles, and guides to stay informed about common tech threats, digital wellbeing, and responsible innovation.<br>
-                    <strong>Be aware, stay updated, and shape a better digital future with Tech Monk.</strong>
-                </div>
-                <a href="#features" class="cta-button">Get Started</a>
+                <a href="#features" class="bg-primary-DEFAULT text-white font-semibold px-8 py-4 rounded-lg shadow-md hover:bg-primary-hover transition-all duration-300 transform hover:scale-105">
+                    Explore Our Insights
+                </a>
             </div>
-        </div>
-    </section>
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Amazing Features</h2>
-            <div class="features-grid">
-                <div class="card fade-in">
-                    <div class="card-icon">
-                        <i class="fas fa-star"></i>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark">Why Tech Monk?</h2>
+                    <p class="text-lg text-gray-500 mt-4">Core principles that guide our content.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-blue-100 text-primary-DEFAULT rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-3">Expert Insights</h3>
+                        <p class="text-gray-600">
+                            We deliver well-researched, high-quality content on the latest tech trends and digital safety, ensuring you get reliable information.
+                        </p>
                     </div>
-                    <h3>Premium Quality</h3>
-                    <p>High-quality solutions built with modern technologies and best practices for optimal performance.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">
-                        <i class="fas fa-magic"></i>
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-green-100 text-green-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-3">User-Focused</h3>
+                        <p class="text-gray-600">
+                           Our content is crafted to be clear, accessible, and practical for everyone, from tech enthusiasts to casual users.
+                        </p>
                     </div>
-                    <h3>Easy to Use</h3>
-                    <p>Intuitive interface designed for users of all skill levels. Get started quickly with our simple setup.</p>
-                </div>
-                <div class="card fade-in">
-                    <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
+                    <!-- Feature Card 3 -->
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="bg-red-100 text-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-3">Safety & Privacy</h3>
+                        <p class="text-gray-600">
+                           We prioritize awareness of cybersecurity and data privacy, empowering you to protect your digital identity effectively.
+                        </p>
                     </div>
-                    <h3>Fast Performance</h3>
-                    <p>Optimized for speed and efficiency. Experience lightning-fast loading times and smooth interactions.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2>About Our Company</h2>
-                    <p>
-                        We're passionate about creating exceptional digital experiences that make a difference. Our team combines creativity with technical expertise to deliver solutions that exceed expectations.<br>
-                        Tech Monk also aims to educate users about digital safety, ethical use of technology, and emerging trends affecting communities worldwide.
-                    </p>
-                    <p>
-                        With years of experience in the industry, we understand what it takes to build successful websites and resources that not only look great but also perform exceptionally well.
-                    </p>
-                </div>
-                <div class="about-image-container fade-in">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop" alt="Team collaborating">
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>📧 dhileepraj777@gmail.com</p>
-                    <p>📞 6379026089</p>
-                    <p>📍 7/28, pollachi</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#home">Home</a></p>
-                    <p><a href="#features">Features</a></p>
-                    <p><a href="#about">About</a></p>
-                    <p><a href="#contact">Contact</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">LinkedIn</a></p>
-                    <p><a href="#">Instagram</a></p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-light">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop" alt="Team discussing ideas" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Our Mission</h2>
+                        <p class="text-lg text-gray-600 mb-4">
+                            At Tech Monk, we believe technology should be a tool for empowerment, not confusion. Our mission is to demystify complex topics and provide actionable advice that helps people make informed decisions about the technology they use every day.
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            We are committed to fostering a community that values digital well-being, ethical tech, and continuous learning in our fast-evolving world.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Tech Monk. All rights reserved.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark">Get in Touch</h2>
+                    <p class="text-lg text-gray-500 mt-4">Have questions or feedback? We'd love to hear from you.</p>
+                </div>
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl border border-gray-200">
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT transition-shadow">
+                        </div>
+                         <div class="mb-6">
+                            <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT transition-shadow">
+                        </div>
+                         <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT transition-shadow"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-primary-DEFAULT text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-primary-hover transition-all duration-300 w-full">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                 <div class="col-span-2 md:col-span-1">
+                    <h3 class="text-xl font-bold mb-4">Tech Monk</h3>
+                    <p class="text-gray-400">Digital Craft & Awareness.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a></li>
+                    </ul>
+                </div>
+                 <!-- Contact -->
+                 <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>dhileepraj777@gmail.com</li>
+                        <li>+91 6379026089</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+                <p>&copy; 2025 Tech Monk. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
     <script>
-        // Hamburger menu toggle
-        document.addEventListener("DOMContentLoaded", function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('open');
-                hamburger.classList.toggle('active');
-                // Accessibility
-                hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (document.querySelector(this.getAttribute('href'))) {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        // Close menu after click on mobile
-                        if(window.innerWidth <= 768) {
-                            navLinks.classList.remove('open');
-                            hamburger.classList.remove('active');
-                            hamburger.setAttribute('aria-expanded', 'false');
-                        }
+            
+            // Close mobile menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')) {
+                       mobileMenu.classList.add('hidden');
                     }
                 });
             });
 
-            // Header scroll effect
+            // Optional: Add shadow to header on scroll for better visibility
+            const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) {
-                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                if (window.scrollY > 20) {
+                    header.classList.add('header-shadow');
                 } else {
-                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                    header.classList.remove('header-shadow');
                 }
-            });
-
-            // Intersection Observer for fade-in effect
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2,
-                rootMargin: "0px 0px -50px 0px"
-            });
-
-            document.querySelectorAll('.fade-in').forEach(element => {
-                observer.observe(element);
             });
         });
     </script>
-    <!-- Contact Section (moved into main flow, not below </html>) -->
-    <section id="contact" style="background: var(--light-bg); border-bottom: none;">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contactForm" style="max-width:400px;margin:auto;">
-                <div style="margin-bottom:1rem;">
-                    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;">
-                </div>
-                <div style="margin-bottom:1rem;">
-                    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;">
-                </div>
-                <div style="margin-bottom:1rem;">
-                    <textarea name="message" placeholder="Your Message" required style="width:100%;padding:10px;height:100px;"></textarea>
-                </div>
-                <button type="submit" style="background:var(--primary-color);color:white;border:none;padding:10px 30px;border-radius:5px;cursor:pointer;">Send</button>
-                <div id="formStatus" style="margin-top:1rem;"></div>
-            </form>
-        </div>
-    </section>
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const status = document.getElementById('formStatus');
-        status.textContent = "Sending...";
-        try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify({
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    message: formData.get('message')
-                }),
-                headers: {'Content-Type': 'application/json'}
-            });
-            const data = await res.json();
-            if(data.success) {
-                status.textContent = "Message sent successfully!";
-                form.reset();
-            } else {
-                status.textContent = "Failed to send message.";
-            }
-        } catch {
-            status.textContent = "Error sending message.";
-        }
-    });
-    </script>
+
 </body>
 </html>
+
