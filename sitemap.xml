@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+  <url>
+    <loc>https://dhileep111.github.io/tech-monk/</loc>
+    <lastmod>2025-10-06</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dhileep111.github.io/tech-monk/blog.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dhileep111.github.io/tech-monk/#features</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dhileep111.github.io/tech-monk/#about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dhileep111.github.io/tech-monk/#contact</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
