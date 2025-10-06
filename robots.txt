@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dhileep111.github.io/tech-monk/sitemap.xml
